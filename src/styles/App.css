@@ -1,0 +1,40 @@
+.header {
+  text-align: center;
+}
+
+.widthContainer {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 110rem;
+}
+
+.animeCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.animeItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 13rem;
+  width: 10rem;
+}
+
+.animeTitle {
+  display: flex;
+  align-items: end;
+  text-align: center;
+  font-size: 0.8rem;
+  min-height: 1.5rem;
+}
+
+.animeCard {
+  border: 2px solid lightgray;
+  height: 10rem;
+  width: 8rem;
+  border-radius: 0.5rem;
+}
