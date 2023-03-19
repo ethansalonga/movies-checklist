@@ -1,17 +1,17 @@
 import "./styles/App.css"
-import top100AnimeArr from "./data/top100anime"
+import top100MoviesArr from "./data/top100movies"
 
 function App() {
   return (
     <>
       <main>
-        <h1 className="header">Top 100 Anime Checklist</h1>
+        <h1 className="header">Top 100 Movies of All Time</h1>
         <div className="widthContainer">
-          <section className="animeCards">
-            {top100AnimeArr.map((item) => (
-              <div className="animeItem">
-                <div className="animeTitle">{item.title}</div>
-                <div className="animeCard"></div>
+          <section className="movieCards">
+            {top100MoviesArr.map((item) => (
+              <div className="movieItem">
+                <div className="movieTitle">{item.title}</div>
+                <img className="movieCard" src={item.image} alt="" />
               </div>
             ))}
           </section>

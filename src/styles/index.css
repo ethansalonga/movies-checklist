@@ -5,4 +5,11 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
+  color: #d8d8d8;
+  background: rgb(36, 89, 83);
+  background: linear-gradient(
+    90deg,
+    rgba(36, 89, 83, 1) 35%,
+    rgba(64, 142, 145, 1) 100%
+  );
 }
