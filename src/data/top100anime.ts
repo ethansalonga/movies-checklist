@@ -1,4 +1,6 @@
-const top100AnimeArr = [
+type AnimeArr = { title: string }[]
+
+const top100AnimeArr: AnimeArr = [
   { title: "Fullmetal Alchemist" },
   { title: "My Hero Academia" },
   { title: "Your Name" },
