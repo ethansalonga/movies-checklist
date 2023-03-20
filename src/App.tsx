@@ -25,19 +25,14 @@ function App() {
     getData()
   }, [])
 
-  useEffect(() => {
-    console.log(moviesArr)
-  }, [moviesArr])
-
   const getData = async () => {
-    const requestString =
-      "https://api.themoviedb.org/3/movie/top_rated?api_key=3f5496b71014011752928a7f26121beb&language=en-US&page="
+    const requestUrlString = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&page=`
     const urls = [
-      `${requestString}1`,
-      `${requestString}2`,
-      `${requestString}3`,
-      `${requestString}4`,
-      `${requestString}5`,
+      `${requestUrlString}1`,
+      `${requestUrlString}2`,
+      `${requestUrlString}3`,
+      `${requestUrlString}4`,
+      `${requestUrlString}5`,
     ]
     const requests = urls.map((url) => axios.get(url))
 
