@@ -12,34 +12,18 @@ function App() {
   }, [])
 
   const getData = async () => {
-    const requestUrlString = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&page=`
-    const urls = [
-      `${requestUrlString}1`,
-      `${requestUrlString}2`,
-      `${requestUrlString}3`,
-      `${requestUrlString}4`,
-      `${requestUrlString}5`,
-    ]
-    const requests = urls.map((url) => axios.get(url))
-
-    const tempArr: Movie[] = []
-    await axios.all(requests).then((responses) => {
-      responses.forEach((res) => {
-        tempArr.push(...res.data.results)
-      })
-    })
-
-    setMoviesArr(tempArr)
+    axios
+      .get(
+        `https://api.themoviedb.org/3/list/8245387?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US`
+      )
+      .then((res) => setMoviesArr(res.data.items))
   }
 
   return (
     <>
       <main>
         <div className="headerContainer">
-          <h1 className="header">Top 100 Rated Movies</h1>
-          <h3 className="subheader">
-            in order, according to The Movie Database (TMDB) users
-          </h3>
+          <h1 className="header">Top 250 Movies of All Time</h1>
         </div>
         <div className="widthContainer">
           <section className="movieCards">

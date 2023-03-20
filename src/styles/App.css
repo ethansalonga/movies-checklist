@@ -3,15 +3,6 @@
   text-align: center;
 }
 
-.header {
-  margin-bottom: 0.3rem;
-}
-
-.subheader {
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
 .widthContainer {
   margin: 0 auto;
   width: 100%;
@@ -28,9 +19,9 @@
 .movieItem {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  height: 13rem;
+  height: 15rem;
   width: 10rem;
 }
 
@@ -40,6 +31,7 @@
   text-align: center;
   font-size: 0.8rem;
   min-height: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 .movieCard {
