@@ -1,5 +1,15 @@
-.header {
+.headerContainer {
+  padding: 2rem 0;
   text-align: center;
+}
+
+.header {
+  margin-bottom: 0.3rem;
+}
+
+.subheader {
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 .widthContainer {
@@ -33,9 +43,15 @@
 }
 
 .movieCard {
-  background-color: #d8d8d8;
   cursor: pointer;
   height: 10rem;
   width: 8rem;
   border-radius: 0.5rem;
+  opacity: 10%;
+  transition: all 200ms ease-in-out;
+}
+
+.movieCard:hover {
+  transform: scale(1.08);
+  opacity: 50%;
 }
