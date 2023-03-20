@@ -1,22 +1,8 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
+import MovieCard from "./components/MovieCard"
+import { Movie } from "./types"
 import "./styles/App.css"
-
-type Movie = {
-  adult: boolean
-  backdrop_path: string
-  genre_ids: number[]
-  id: number
-  original_title: string
-  overview: string
-  popularity: number
-  poster_path: string
-  release_date: string
-  title: string
-  video: boolean
-  vote_average: number
-  vote_count: number
-}
 
 function App() {
   const [moviesArr, setMoviesArr] = useState<Movie[]>([])
@@ -58,14 +44,7 @@ function App() {
         <div className="widthContainer">
           <section className="movieCards">
             {moviesArr.map((movie) => (
-              <div className="movieItem">
-                <div className="movieTitle">{movie.title}</div>
-                <img
-                  className="movieCard"
-                  src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                  alt={`${movie.title} poster`}
-                />
-              </div>
+              <MovieCard movie={movie} key={movie.id} />
             ))}
           </section>
         </div>
