@@ -27,8 +27,8 @@ function App() {
         </div>
         <div className="widthContainer">
           <section className="movieCards">
-            {moviesArr.map((movie) => (
-              <MovieCard movie={movie} key={movie.id} />
+            {moviesArr.map((movie, index) => (
+              <MovieCard movie={movie} key={movie.id} index={index} />
             ))}
           </section>
         </div>
