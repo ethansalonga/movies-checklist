@@ -4,49 +4,11 @@
   padding: 0.75rem 1rem;
 }
 
-.paginationMobileContainer {
-  display: flex;
-  justify-content: space-between;
-  flex: 1 1 0%;
-}
-
-.paginationButton {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  color: rgb(55, 65, 81);
-  background-color: #fff;
-  border: 1px solid #d8d8d8;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 500;
-}
-
-.paginationButton:hover,
-.pageNumber:hover {
-  background-color: rgb(225, 225, 225);
-}
-
-.paginationButton-disabled {
-  cursor: default;
-  opacity: 0.5;
-}
-
-.paginationButton-disabled:hover {
-  background-color: #fff;
-}
-
-.paginationMobile {
-  border-radius: 0.375rem;
-  padding: 0.5rem 1rem;
-}
-
-.paginationStandard {
-  padding: 0.5rem;
-}
-
 .paginationNavContainer {
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 0%;
 }
 
 .paginationNav {
@@ -54,10 +16,6 @@
   z-index: 0;
   display: inline-flex;
   border-radius: 0.375rem;
-  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .paginationNav > :not([hidden]) ~ :not([hidden]) {
@@ -66,12 +24,38 @@
   margin-left: calc(-1px * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.paginationStandard-prev {
+.paginationButton,
+.paginationButton-disabled,
+.pageNumber {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: #d8d8d8;
+  background-color: transparent;
+  border: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  font-family: "Inter", sans-serif;
+}
+
+.paginationButton:hover {
+  color: #e49393;
+}
+
+.paginationButton-disabled {
+  cursor: default;
+  opacity: 0.3;
+}
+
+.paginationButton-prev {
   border-top-left-radius: 0.375rem;
   border-bottom-left-radius: 0.375rem;
 }
 
-.paginationStandard-next {
+.paginationButton-next {
   border-top-right-radius: 0.375rem;
   border-bottom-right-radius: 0.375rem;
 }
@@ -82,35 +66,18 @@
 }
 
 .pageNumber {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  background-color: #fff;
+  padding: 0.5rem 1.5rem;
   list-style-type: none;
-  color: rgb(55, 65, 81);
-  border: 1px solid rgb(209 213 219);
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
+}
+
+.pageNumber:hover {
+  color: #e49393;
 }
 
 .pageNumber-active {
-  background-color: rgb(229 231 235);
+  color: #e49393;
 }
 
 .pageNumber-hidden {
   display: none;
-}
-
-@media (min-width: 640px) {
-  .paginationMobileContainer {
-    display: none;
-  }
-
-  .paginationNavContainer {
-    display: flex;
-    align-items: center;
-    flex: 1 1 0%;
-  }
 }

@@ -19,9 +19,11 @@ const Pagination: React.FC<MyProps> = ({
   const [isNextDisabled, setIsNextDisabled] = useState(false)
   const [isPrevDisabled, setIsPrevDisabled] = useState(false)
 
-  for (let i = 1; i <= Math.ceil(totalMovies / moviesPerPage); i++) {
-    pageNumbers.push(i)
-  }
+  useEffect(() => {
+    for (let i = 1; i <= Math.ceil(totalMovies / moviesPerPage); i++) {
+      pageNumbers.push(i)
+    }
+  }, [totalMovies, moviesPerPage, pageNumbers])
 
   useEffect(() => {
     if (currentPage === pageNumbers.length) {
@@ -41,34 +43,11 @@ const Pagination: React.FC<MyProps> = ({
 
   return (
     <div className="paginationContainer">
-      {/* Mobile buttons */}
-      <div className="paginationMobileContainer">
-        <button
-          onClick={() => {
-            paginate(currentPage - 1)
-          }}
-          className={`paginationMobile ${
-            isPrevDisabled ? "paginationButton-disabled" : "paginationButton"
-          }`}
-          disabled={isPrevDisabled}
-        >
-          Previous
-        </button>
-        <button
-          onClick={() => paginate(currentPage + 1)}
-          className={`paginationMobile ${
-            isNextDisabled ? "paginationButton-disabled" : "paginationButton"
-          }`}
-          disabled={isNextDisabled}
-        >
-          Next
-        </button>
-      </div>
       <div className="paginationNavContainer">
         <nav className="paginationNav" aria-label="Pagination">
           <button
             onClick={() => paginate(currentPage - 1)}
-            className={`paginationStandard paginationStandard-prev ${
+            className={`paginationButton-prev ${
               isPrevDisabled ? "paginationButton-disabled" : "paginationButton"
             }`}
             disabled={isPrevDisabled}
@@ -89,7 +68,7 @@ const Pagination: React.FC<MyProps> = ({
           ))}
           <button
             onClick={() => paginate(currentPage + 1)}
-            className={`paginationStandard paginationStandard-next ${
+            className={`paginationButton-next ${
               isNextDisabled ? "paginationButton-disabled" : "paginationButton"
             }`}
             disabled={isNextDisabled}

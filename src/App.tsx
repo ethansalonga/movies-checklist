@@ -45,8 +45,8 @@ function App() {
         </div>
         <div className="widthContainer">
           <section className="movieCards">
-            {currentMovies.map((movie, index) => (
-              <MovieCard movie={movie} key={movie.id} index={index} />
+            {currentMovies.map((movie) => (
+              <MovieCard movie={movie} key={movie.id} />
             ))}
           </section>
         </div>
