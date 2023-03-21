@@ -3,6 +3,7 @@ import axios from "axios"
 import MovieCard from "./components/MovieCard"
 import { Movie } from "./types"
 import "./styles/App.css"
+import Pagination from "./components/pagination/Pagination"
 
 function App() {
   const [moviesArr, setMoviesArr] = useState<Movie[]>([])
@@ -19,6 +20,23 @@ function App() {
       .then((res) => setMoviesArr(res.data.items))
   }
 
+  // Pagination logic
+  const [currentPage, setCurrentPage] = useState(1)
+  const [moviesPerPage] = useState(10)
+
+  const indexOfLastMovie = currentPage * moviesPerPage
+  const indexOfFirstMovie = indexOfLastMovie - moviesPerPage
+  const currentMovies = moviesArr.slice(indexOfFirstMovie, indexOfLastMovie)
+
+  const paginate = (pageNumber: number) => {
+    setCurrentPage(pageNumber)
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    })
+  }
+
   return (
     <>
       <main>
@@ -27,11 +45,17 @@ function App() {
         </div>
         <div className="widthContainer">
           <section className="movieCards">
-            {moviesArr.map((movie, index) => (
+            {currentMovies.map((movie, index) => (
               <MovieCard movie={movie} key={movie.id} index={index} />
             ))}
           </section>
         </div>
+        <Pagination
+          moviesPerPage={moviesPerPage}
+          totalMovies={moviesArr.length}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
       </main>
     </>
   )
