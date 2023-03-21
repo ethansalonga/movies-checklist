@@ -79,13 +79,10 @@ const Pagination: React.FC<MyProps> = ({
             <button
               key={number}
               onClick={() => paginate(number)}
-              className={`${number === currentPage && "bg-gray-200"} ${
-                number > currentPage + 2
-                  ? "hidden"
-                  : number < currentPage - 2
-                  ? "hidden"
-                  : null
-              } list-none bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium`}
+              className={`${number === currentPage && "pageNumber-active"} ${
+                (number > currentPage + 2 || number < currentPage - 2) &&
+                "pageNumber-hidden"
+              } pageNumber`}
             >
               <li>{number}</li>
             </button>
