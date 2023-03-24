@@ -1,5 +1,6 @@
 import { useEffect, useState, useMemo } from "react"
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid"
+import PageNumber from "./PageNumber"
 import "./Pagination.css"
 
 interface MyProps {
@@ -55,16 +56,11 @@ const Pagination: React.FC<MyProps> = ({
             <ChevronLeftIcon className="chevronIcon" />
           </button>
           {pageNumbers.map((number) => (
-            <button
-              key={number}
-              onClick={() => paginate(number)}
-              className={`${number === currentPage && "pageNumber-active"} ${
-                (number > currentPage + 2 || number < currentPage - 2) &&
-                "pageNumber-hidden"
-              } pageNumber`}
-            >
-              <li>{number}</li>
-            </button>
+            <PageNumber
+              number={number}
+              paginate={paginate}
+              currentPage={currentPage}
+            />
           ))}
           <button
             onClick={() => paginate(currentPage + 1)}
